@@ -16,9 +16,7 @@ class FollowSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         if data["user"] == data["following"]:
-            raise serializers.ValidationError(
-                "You can`t follow yorself"
-            )
+            raise serializers.ValidationError("You can`t follow yourself")
         return data
 
     class Meta:
